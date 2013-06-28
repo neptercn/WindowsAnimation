@@ -3,7 +3,7 @@
 ;;;;;;;;;;;;;;;;;;;;;;;
 class IUIAnimationManager 
 {
-  __new(){
+	__new(){
 		this.__:=ComObjCreate("{4C1FC63A-695C-47E8-A339-1A194BE3D0B8}","{9169896C-AC8D-4e7d-94E5-67FA4DC2F2E8}")
 		this._i:={3:"CreateAnimationVariable",4:"ScheduleTransition",5:"CreateStoryboard",6:"FinishAllStoryboards",7:"AbandonAllStoryboards",8:"Update",9:"GetVariableFromTag",10:"GetStoryboardFromTag",11:"GetStatus",12:"SetAnimationMode",13:"Pause",14:"Resume",15:"SetManagerEventHandler",16:"SetCancelPriorityComparison",17:"SetTrimPriorityComparison",18:"SetCompressPriorityComparison",19:"SetConcludePriorityComparison",20:"SetDefaultLongestAcceptableDelay",21:"Shutdown"}
 	}
@@ -124,68 +124,68 @@ class IUIAnimationVariable
 		if this._i.haskey(aName)
 			return this[this._i[aName]]()
 	}
-  GetValue(){
+	GetValue(){
 	_Error(DllCall(vt(this._p,3),"ptr",this._p,"double*",value),"GetValue")
 	return value
-  }
+	}
 
-  GetFinalValue(){
+	GetFinalValue(){
 	_Error(DllCall(vt(this._p,4),"ptr",this._p,"double*",finalValue),"GetFinalValue")
 	return finalValue
-  }
+	}
 
-  GetPreviousValue(){
+	GetPreviousValue(){
 	_Error(DllCall(vt(this._p,5),"ptr",this._p,"double*",previousValue),"GetPreviousValue")
 	return previousValue
-  }
+	}
 
-  GetIntegerValue(){
+	GetIntegerValue(){
 	_Error(DllCall(vt(this._p,6),"ptr",this._p,"int*",value),"GetIntegerValue")
 	return value
-  }
+	}
 
-  GetFinalIntegerValue(){
+	GetFinalIntegerValue(){
 	_Error(DllCall(vt(this._p,7),"ptr",this._p,"int*",finalValue),"GetFinalIntegerValue")
 	return finalValue
-  }
+	}
 
-  GetPreviousIntegerValue(){
+	GetPreviousIntegerValue(){
 	_Error(DllCall(vt(this._p,8),"ptr",this._p,"int*",previousValue),"GetPreviousIntegerValue")
 	return previousValue
-  }
+	}
 
-  GetCurrentStoryboard(){
+	GetCurrentStoryboard(){
 	_Error(DllCall(vt(this._p,9),"ptr",this._p,"ptr*",storyboard),"GetCurrentStoryboard")
 	return storyboard
-  }
+	}
 
-  SetLowerBound(bound){
+	SetLowerBound(bound){
 	return _Error(DllCall(vt(this._p,10),"ptr",this._p,"double",bound),"SetLowerBound")
-  }
+	}
 
-  SetUpperBound(bound){
+	SetUpperBound(bound){
 	return _Error(DllCall(vt(this._p,11),"ptr",this._p,"double",bound),"SetUpperBound")
-  }
+	}
 
-  SetRoundingMode(mode){
+	SetRoundingMode(mode){
 	return _Error(DllCall(vt(this._p,12),"ptr",this._p,"uint",mode),"SetRoundingMode")
-  }
+	}
 
-  SetTag(object,id){
+	SetTag(object,id){
 	return _Error(DllCall(vt(this._p,13),"ptr",this._p,"ptr",object,"uint",id),"SetTag")
-  }
+	}
 
-  GetTag(Byref object,Byref id){
+	GetTag(Byref object,Byref id){
 	return _Error(DllCall(vt(this._p,14),"ptr",this._p,"ptr*",object,"uint*",id),"GetTag")
-  }
+	}
 
-  SetVariableChangeHandler(handler){
+	SetVariableChangeHandler(handler){
 	return _Error(DllCall(vt(this._p,15),"ptr",this._p,"ptr",handler),"SetVariableChangeHandler")
-  }
+	}
 
-  SetVariableIntegerChangeHandler(handler){
+	SetVariableIntegerChangeHandler(handler){
 	return _Error(DllCall(vt(this._p,16),"ptr",this._p,"ptr",handler),"SetVariableIntegerChangeHandler")
-  }
+	}
 }
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;IUIAnimationStoryboard;;
@@ -210,78 +210,78 @@ class IUIAnimationStoryboard
 		if this._i.haskey(aName)
 			return this[this._i[aName]]()
 	}
-  AddTransition(variable,transition){
+	AddTransition(variable,transition){
 	return _Error(DllCall(vt(this._p,3),"ptr",this._p,"ptr",variable,"ptr",transition),"AddTransition")
-  }
+	}
 
-  AddKeyframeAtOffset(existingKeyframe,offset){
+	AddKeyframeAtOffset(existingKeyframe,offset){
 	_Error(DllCall(vt(this._p,4),"ptr",this._p,"uint",existingKeyframe,"double",offset,"uint*",keyframe),"AddKeyframeAtOffset")
 	return keyframe
-  }
+	}
 
-  AddKeyframeAfterTransition(transition){
+	AddKeyframeAfterTransition(transition){
 	_Error(DllCall(vt(this._p,5),"ptr",this._p,"ptr",transition,"uint*",keyframe),"AddKeyframeAfterTransition")
 	return keyframe
-  }
+	}
 
-  AddTransitionAtKeyframe(variable,transition,startKeyframe){
+	AddTransitionAtKeyframe(variable,transition,startKeyframe){
 	return _Error(DllCall(vt(this._p,6),"ptr",this._p,"ptr",variable,"ptr",transition,"uint",startKeyframe),"AddTransitionAtKeyframe")
-  }
+	}
 
-  AddTransitionBetweenKeyframes(variable,transition,startKeyframe,endKeyframe){
+	AddTransitionBetweenKeyframes(variable,transition,startKeyframe,endKeyframe){
 	return _Error(DllCall(vt(this._p,7),"ptr",this._p,"ptr",variable,"ptr",transition,"uint",startKeyframe,"uint",endKeyframe),"AddTransitionBetweenKeyframes")
-  }
+	}
 
-  RepeatBetweenKeyframes(startKeyframe,endKeyframe,repetitionCount){
+	RepeatBetweenKeyframes(startKeyframe,endKeyframe,repetitionCount){
 	return _Error(DllCall(vt(this._p,8),"ptr",this._p,"uint",startKeyframe,"uint",endKeyframe,"int",repetitionCount),"RepeatBetweenKeyframes")
-  }
+	}
 
-  HoldVariable(variable){
+	HoldVariable(variable){
 	return _Error(DllCall(vt(this._p,9),"ptr",this._p,"ptr",variable),"HoldVariable")
-  }
+	}
 
-  SetLongestAcceptableDelay(delay){
+	SetLongestAcceptableDelay(delay){
 	return _Error(DllCall(vt(this._p,10),"ptr",this._p,"double",delay),"SetLongestAcceptableDelay")
-  }
+	}
 
-  Schedule(timeNow){
+	Schedule(timeNow){
 	_Error(DllCall(vt(this._p,11),"ptr",this._p,"double",timeNow,"uint*",schedulingResult),"Schedule")
 	return schedulingResult
-  }
+	}
 
-  Conclude(){
+	Conclude(){
 	return _Error(DllCall(vt(this._p,12),"ptr",this._p),"Conclude")
-  }
+	}
 
-  Finish(completionDeadline){
+	Finish(completionDeadline){
 	return _Error(DllCall(vt(this._p,13),"ptr",this._p,"double",completionDeadline),"Finish")
-  }
+	}
 
-  Abandon(){
+	Abandon(){
 	return _Error(DllCall(vt(this._p,14),"ptr",this._p),"Abandon")
-  }
+	}
 
-  SetTag(object,id){
+	SetTag(object,id){
 	return _Error(DllCall(vt(this._p,15),"ptr",this._p,"ptr",object,"uint",id),"SetTag")
-  }
+	}
 
-  GetTag(Byref object,Byref id){
+	GetTag(Byref object,Byref id){
 	return _Error(DllCall(vt(this._p,16),"ptr",this._p,"ptr*",object,"uint*",id),"GetTag")
-  }
+	}
 
-  GetStatus(){
+	GetStatus(){
 	_Error(DllCall(vt(this._p,17),"ptr",this._p,"uint*",status),"GetStatus")
 	return status
-  }
+	}
 
-  GetElapsedTime(){
+	GetElapsedTime(){
 	_Error(DllCall(vt(this._p,18),"ptr",this._p,"double*",elapsedTime),"GetElapsedTime")
 	return elapsedTime
-  }
+	}
 
-  SetStoryboardEventHandler(handler){
+	SetStoryboardEventHandler(handler){
 	return _Error(DllCall(vt(this._p,19),"ptr",this._p,"ptr",handler),"SetStoryboardEventHandler")
-  }
+	}
 }
 ;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;IUIAnimationTransition;;
@@ -306,29 +306,29 @@ class IUIAnimationTransition
 		if this._i.haskey(aName)
 			return this[this._i[aName]]()
 	}
-  SetInitialValue(value){
+	SetInitialValue(value){
 	return _Error(DllCall(vt(this._p,3),"ptr",this._p,"double",value),"SetInitialValue")
-  }
+	}
 
-  SetInitialVelocity(velocity){
+	SetInitialVelocity(velocity){
 	return _Error(DllCall(vt(this._p,4),"ptr",this._p,"double",velocity),"SetInitialVelocity")
-  }
+	}
 
-  IsDurationKnown(){
+	IsDurationKnown(){
 	return _Error(DllCall(vt(this._p,5),"ptr",this._p),"IsDurationKnown")
-  }
+	}
 
-  GetDuration(){
+	GetDuration(){
 	_Error(DllCall(vt(this._p,6),"ptr",this._p,"double*",duration),"GetDuration")
 	return duration
-  }
+	}
 }
 ;;;;;;;;;;;;;;;;;;;;;
 ;;IUIAnimationTimer;;
 ;;;;;;;;;;;;;;;;;;;;;
 class IUIAnimationTimer
 {
-  __new(){
+	__new(){
 		this._p:=ComObjCreate("{BFCD4A0C-06B6-4384-B768-0DAA792C380E}","{6B0EFAD1-A053-41d6-9085-33A689144665}")
 		this._i:={3:"SetTimerUpdateHandler",4:"SetTimerEventHandler",5:"Enable",6:"Disable",7:"IsEnabled",8:"GetTime",9:"SetFrameRateThreshold"}
 		this._e:={}
@@ -345,41 +345,41 @@ class IUIAnimationTimer
 		if this._i.haskey(aName)
 			return this[this._i[aName]]()
 	}
-  SetTimerUpdateHandler(updateHandler,idleBehavior){
+	SetTimerUpdateHandler(updateHandler,idleBehavior){
 	return _Error(DllCall(vt(this._p,3),"ptr",this._p,"ptr",updateHandler,"uint",idleBehavior),"SetTimerUpdateHandler")
-  }
+	}
 
-  SetTimerEventHandler(handler){
+	SetTimerEventHandler(handler){
 	return _Error(DllCall(vt(this._p,4),"ptr",this._p,"ptr",handler),"SetTimerEventHandler")
-  }
+	}
 
-  Enable(){
+	Enable(){
 	return _Error(DllCall(vt(this._p,5),"ptr",this._p),"Enable")
-  }
+	}
 
-  Disable(){
+	Disable(){
 	return _Error(DllCall(vt(this._p,6),"ptr",this._p),"Disable")
-  }
+	}
 
-  IsEnabled(){
+	IsEnabled(){
 	return _Error(DllCall(vt(this._p,7),"ptr",this._p),"IsEnabled")
-  }
+	}
 
-  GetTime(){
+	GetTime(){
 	_Error(DllCall(vt(this._p,8),"ptr",this._p,"double*",seconds),"GetTime")
 	return seconds
-  }
+	}
 
-  SetFrameRateThreshold(framesPerSecond){
+	SetFrameRateThreshold(framesPerSecond){
 	return _Error(DllCall(vt(this._p,9),"ptr",this._p,"uint",framesPerSecond),"SetFrameRateThreshold")
-  }
+	}
 }
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 ;;IUIAnimationTransitionLibrary;;
 ;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
 class IUIAnimationTransitionLibrary
 {
-  __new(){
+	__new(){
 		this._p:=ComObjCreate("{1D6322AD-AA85-4EF5-A828-86D71067D145}","{CA5A14B1-D24F-48b8-8FE4-C78169BA954E}")
 		this._i:={3:"CreateInstantaneousTransition",4:"CreateConstantTransition",5:"CreateDiscreteTransition",6:"CreateLinearTransition",7:"CreateLinearTransitionFromSpeed",8:"CreateSinusoidalTransitionFromVelocity",9:"CreateSinusoidalTransitionFromRange",10:"CreateAccelerateDecelerateTransition",11:"CreateReversalTransition",12:"CreateCubicTransition",13:"CreateSmoothStopTransition",14:"CreateParabolicTransitionFromAcceleration"}
 		this._e:={}
@@ -400,65 +400,121 @@ class IUIAnimationTransitionLibrary
 		else if this._e.haskey(aName)
 			return this[this._e[aName]]()
 	}
-  CreateInstantaneousTransition(finalValue){
+	CreateInstantaneousTransition(finalValue){
 	_Error(DllCall(vt(this._p,3),"ptr",this._p,"double",finalValue,"ptr*",transition),"CreateInstantaneousTransition")
 	return transition
-  }
+	}
 
-  CreateConstantTransition(duration){
+	CreateConstantTransition(duration){
 	_Error(DllCall(vt(this._p,4),"ptr",this._p,"double",duration,"ptr*",transition),"CreateConstantTransition")
 	return transition
-  }
+	}
 
-  CreateDiscreteTransition(delay,finalValue,hold){
+	CreateDiscreteTransition(delay,finalValue,hold){
 	_Error(DllCall(vt(this._p,5),"ptr",this._p,"double",delay,"double",finalValue,"double",hold,"ptr*",transition),"CreateDiscreteTransition")
 	return transition
-  }
+	}
 
-  CreateLinearTransition(duration,finalValue){
+	CreateLinearTransition(duration,finalValue){
 	_Error(DllCall(vt(this._p,6),"ptr",this._p,"double",duration,"double",finalValue,"ptr*",transition),"CreateLinearTransition")
 	return transition
-  }
+	}
 
-  CreateLinearTransitionFromSpeed(speed,finalValue){
+	CreateLinearTransitionFromSpeed(speed,finalValue){
 	_Error(DllCall(vt(this._p,7),"ptr",this._p,"double",speed,"double",finalValue,"ptr*",transition),"CreateLinearTransitionFromSpeed")
 	return transition
-  }
+	}
 
-  CreateSinusoidalTransitionFromVelocity(duration,period){
+	CreateSinusoidalTransitionFromVelocity(duration,period){
 	_Error(DllCall(vt(this._p,8),"ptr",this._p,"double",duration,"double",period,"ptr*",transition),"CreateSinusoidalTransitionFromVelocity")
 	return transition
-  }
+	}
 
-  CreateSinusoidalTransitionFromRange(duration,minimumValue,maximumValue,period,slope){
+	CreateSinusoidalTransitionFromRange(duration,minimumValue,maximumValue,period,slope){
 	_Error(DllCall(vt(this._p,9),"ptr",this._p,"double",duration,"double",minimumValue,"double",maximumValue,"double",period,"double",slope,"ptr*",transition),"CreateSinusoidalTransitionFromRange")
 	return transition
-  }
+	}
 
-  CreateAccelerateDecelerateTransition(duration,finalValue,accelerationRatio,decelerationRatio){
+	CreateAccelerateDecelerateTransition(duration,finalValue,accelerationRatio,decelerationRatio){
 	_Error(DllCall(vt(this._p,10),"ptr",this._p,"double",duration,"double",finalValue,"double",accelerationRatio,"double",decelerationRatio,"ptr*",transition),"CreateAccelerateDecelerateTransition")
 	return transition
-  }
+	}
 
-  CreateReversalTransition(duration){
+	CreateReversalTransition(duration){
 	_Error(DllCall(vt(this._p,11),"ptr",this._p,"double",duration,"ptr*",transition),"CreateReversalTransition")
 	return transition
-  }
+	}
 
-  CreateCubicTransition(duration,finalValue,finalVelocity){
+	CreateCubicTransition(duration,finalValue,finalVelocity){
 	_Error(DllCall(vt(this._p,12),"ptr",this._p,"double",duration,"double",finalValue,"double",finalVelocity,"ptr*",transition),"CreateCubicTransition")
 	return transition
-  }
+	}
 
-  CreateSmoothStopTransition(maximumDuration,finalValue){
+	CreateSmoothStopTransition(maximumDuration,finalValue){
 	_Error(DllCall(vt(this._p,13),"ptr",this._p,"double",maximumDuration,"double",finalValue,"ptr*",transition),"CreateSmoothStopTransition")
 	return transition
-  }
+	}
 
-  CreateParabolicTransitionFromAcceleration(finalValue,finalVelocity,acceleration){
+	CreateParabolicTransitionFromAcceleration(finalValue,finalVelocity,acceleration){
 	_Error(DllCall(vt(this._p,14),"ptr",this._p,"double",finalValue,"double",finalVelocity,"double",acceleration,"ptr*",transition),"CreateParabolicTransitionFromAcceleration")
 	return transition
-  }
+	}
+}
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;;IUIAnimationInterpolator;;
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+class IUIAnimationInterpolator
+{
+	__new(){
+		this._p:=0
+		this._i:={3:"SetInitialValueAndVelocity",4:"SetDuration",5:"GetDuration",6:"GetFinalValue",7:"InterpolateValue",8:"InterpolateVelocity",9:"GetDependencies"}
+	}
+	__call(aName,aParam*){
+		if aName is Integer
+		{
+			if this._i.HasKey(aName)
+				return this[this._i[aName]](aParam*)
+		}else if (aName=""){
+			this._p:=aParam.1
+			return this
+		}
+	}
+	__get(aName){
+		if this._i.haskey(aName)
+			return this[this._i[aName]]()
+	}
+	
+	SetInitialValueAndVelocity(initialValue,initialVelocity){
+	return _Error(DllCall(vt(this._p,3),"ptr",this._p,"double",initialValue,"double",initialVelocity),"SetInitialValueAndVelocity")
+	}
+
+	SetDuration(duration){
+	return _Error(DllCall(vt(this._p,4),"ptr",this._p,"double",duration),"SetDuration")
+	}
+
+	GetDuration(){
+	_Error(DllCall(vt(this._p,5),"ptr",this._p,"double*",duration),"GetDuration")
+	return duration
+	}
+
+	GetFinalValue(){
+	_Error(DllCall(vt(this._p,6),"ptr",this._p,"double*",value),"GetFinalValue")
+	return value
+	}
+
+	InterpolateValue(offset){
+	_Error(DllCall(vt(this._p,7),"ptr",this._p,"double",offset,"double*",value),"InterpolateValue")
+	return value
+	}
+
+	InterpolateVelocity(offset){
+	_Error(DllCall(vt(this._p,8),"ptr",this._p,"double",offset,"double*",velocity),"InterpolateVelocity")
+	return velocity
+	}
+
+	GetDependencies(Byref initialValueDependencies,Byref initialVelocityDependencies,Byref durationDependencies){
+	return _Error(DllCall(vt(this._p,9),"ptr",this._p,"uint*",initialValueDependencies,"uint*",initialVelocityDependencies,"uint*",durationDependencies),"GetDependencies")
+	}
 }
 
 ;;;;;;;;;;;;;;;;;;;;;
@@ -548,8 +604,8 @@ vt(p,n){
 	return NumGet(NumGet(p+0,"ptr")+n*A_PtrSize,"ptr")
 }
 GUID(ByRef GUID, sGUID){
-    VarSetCapacity(GUID, 16, 0)
-    return DllCall("ole32\CLSIDFromString", "wstr", sGUID, "ptr", &GUID) >= 0 ? &GUID : ""
+		VarSetCapacity(GUID, 16, 0)
+		return DllCall("ole32\CLSIDFromString", "wstr", sGUID, "ptr", &GUID) >= 0 ? &GUID : ""
 }
 _error(a,b){
 	static err:={0x8000FFFF:"Catastrophic failure error.",0x80004001:"Not implemented error.",0x8007000E:"Out of memory error.",0x80070057:"One or more arguments are not valid error.",0x80004002:"Interface not supported error.",0x80004003:"Pointer not valid error.",0x80070006:"Handle not valid error.",0x80004004:"Operation aborted error.",0x80004005:"Unspecified error.",0x80070005:"General access denied error.",0x800401E5:"The object identified by this moniker could not be found."} ; //not completed
